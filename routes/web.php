@@ -7,6 +7,7 @@ use App\Http\Controllers\BannerController;
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CounterController;
+use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\PlanCOntroller;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
@@ -161,6 +162,15 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('counter/delete/{counter}',[CounterController::class,'delete'])->name('counter.delete');
     Route::get('counter/duplicate/{counter}',[CounterController::class,'duplicate'])->name('counter.duplicate');
 
+    //home section
+
+    Route::get('homeSection/index',[HomeSectionController::class,'index'])->name('homeSection.index');
+    Route::get('homeSection/create',[HomeSectionController::class,'create'])->name('homeSection.create');
+    Route::post('homeSection/store',[HomeSectionController::class,'store'])->name('homeSection.store');
+    Route::get('homeSection/edit/{homeSection}',[HomeSectionController::class,'edit'])->name('homeSection.edit');
+    Route::post('homeSection/update/{homeSection}',[HomeSectionController::class,'update'])->name('homeSection.update');
+    Route::get('homeSection/delete/{homeSection}',[HomeSectionController::class,'delete'])->name('homeSection.delete');
+    Route::get('homeSection/duplicate/{homeSection}',[HomeSectionController::class,'duplicate'])->name('homeSection.duplicate');
 
 });
 

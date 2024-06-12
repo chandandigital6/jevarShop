@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Counter;
+use App\Models\HomeSection;
 use App\Models\Plan;
 use App\Models\Service;
 use App\Models\Team;
@@ -22,7 +23,8 @@ class HomeController extends Controller
         $testimonials=Testimonial::all();
         $teams=Team::all();
         $counters=Counter::all();
-        return view('front.index',compact('banner','counters','about','services','plans','testimonials','teams'));
+        $homeSection=HomeSection::all();
+        return view('front.index',compact('banner','counters','about','services','plans','testimonials','teams','homeSection'));
       }
       public function about(){
           $teams=Team::all();

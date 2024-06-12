@@ -26,8 +26,8 @@
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1>Service Plans</h1>
-                            <a href="{{ route('plan.create') }}" class="btn btn-light">Create Plans</a>
+                            <h1>whyUs</h1>
+                            <a href="{{ route('homeSection.create') }}" class="btn btn-light">Create </a>
                         </div>
                     </div>
 
@@ -47,29 +47,25 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-{{--                                    <th>price</th>--}}
-                                    <th>Massage</th>
-{{--                                    <th> Feature 2</th>--}}
-{{--                                    <th>Feature 3</th>--}}
-                                    <th>Image</th>
+{{--                                    <th>Heading</th>--}}
+                                    <th>Description</th>
+{{--                                    <th>Image</th>--}}
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse ($planData as $plan)
+                                @forelse ($homeSectionData as $homeSection)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $plan->title }}</td>
-{{--                                        <td>{{$plan->price}}</td>--}}
-                                        <td>{{$plan->msg}}</td>
-{{--                                        <td>{{$plan->fe_2}}</td>--}}
-{{--                                        <td>{{$plan->fe_3}}</td>--}}
-                                        <td><img src="{{ asset('storage/'.$plan->image) }}" alt="{{ $plan->title }}" style="max-width: 100px;"></td>
+                                        <td>{{ $homeSection->title }}</td>
+{{--                                        <td>{{$homeSection->heading}}</td>--}}
+                                        <td>{!! $homeSection->msg !!}</td>
+{{--                                        <td><img src="{{ asset('storage/'.$homeSection->image) }}" alt="{{ $homeSection->title }}" style="max-width: 100px;"></td>--}}
                                         <td>
-                                            <a href="{{ route('plan.edit', $plan->id) }}" class="btn btn-primary">Edit</a>
-                                            <a href="{{ route('plan.delete', $plan->id) }}" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('homeSection.edit', $homeSection->id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ route('homeSection.delete', $homeSection->id) }}" class="btn btn-danger">Delete</a>
                                             <!-- Add delete button if needed -->
-                                            <a href="{{ route('plan.duplicate', $plan->id) }}" class="btn btn-warning">Duplicate</a>
+                                            <a href="{{ route('homeSection.duplicate', $homeSection->id) }}" class="btn btn-warning">Duplicate</a>
 
                                         </td>
                                     </tr>

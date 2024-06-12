@@ -11,35 +11,27 @@
 
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                @foreach($banner as $index => $baner)
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="{{ $index == 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
+                @endforeach
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{asset('asset/img/Carat-Gallery-Slider-1.jpg')}}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('asset/img/Carat-Gallery-Slider-2.jpg')}}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('asset/img/Carat-Gallery-Slider-3.jpg')}}" class="d-block w-100" alt="...">
-                </div>
+                @foreach($banner as $index => $baner)
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                        <img src="{{ asset('storage/'.$baner->image) }}" class="d-block w-100" alt="...">
+                    </div>
+                @endforeach
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+
 
         <!--Slider End-->
 
@@ -51,36 +43,24 @@
         <!--About Start-->
 
         <section class="bg-yellow-200 text-gray-900">
+            @foreach($about->take(1) as $abouts)
+
+
             <div class="container mx-auto px-6 py-12 md:flex md:items-center">
                 <div class="md:w-1/2 md:pr-12 animate-fadeIn">
                     <h1 class="text-5xl font-bold leading-tight mb-4">
-                        SERVICE BEYOND <br> COMPARE SINCE <br> <span class="text-6xl text-gray-700">1940</span>
+                     {{$abouts->title}} <br> <span class="text-6xl text-gray-700">{{$abouts->heading}}</span>
                     </h1>
                     <p class="text-lg leading-relaxed mb-6">
-                        We are the 5th generation having paternal business since 1940, has made it their mission to
-                        strive
-                        every
-                        day to earn the confidence and trust of our clients by meeting and exceeding their expectations
-                        of
-                        quality, service, and unsurpassed value. We ensure our actions are consistent with our Corporate
-                        Values,
-                        enabling us to maintain the relationships and reputation, which our family-owned firm has
-                        developed
-                        throughout our history.
+                       {!! $abouts->description !!}
                     </p>
-                    <p class="text-lg leading-relaxed">
-                        The foundation of a family business, and the basis on which our company has grown; an emphasis
-                        on
-                        personalization and strong ties to our clients, industry, and communities,Carat Gallery Diamonds
-                        an
-                        enterprise of Rishabh Chand Sudhir Kumar Jain Sarraf provides our clients with more than they
-                        imagined for less than they anticipate.
-                    </p>
+
                 </div>
                 <div class="md:w-1/2 mt-8 md:mt-0 animate-fadeIn">
-                    <img src="{{asset('asset/img/about-side.jpg')}}" alt="Jewelry Image" class="w-full h-auto rounded-lg shadow-lg">
+                    <img src="{{asset('storage/'.$abouts->image)}}" alt="Jewelry Image" class="w-full h-auto rounded-lg shadow-lg">
                 </div>
             </div>
+            @endforeach
         </section>
 
 
@@ -94,12 +74,15 @@
             <div class="md:w-90 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 w-5/6">
 
                 <!-- Rings Card -->
+                @foreach($services as $service)
+
+
                 <div>
                     <div
                         class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                        <img src="{{asset('asset/img/ring.jpeg')}}" alt="Rings" class="w-full h-80 object-cover rounded-t-lg">
+                        <img src="{{asset('storage/'.$service->image)}}" alt="Rings" class="w-full h-80 object-cover rounded-t-lg">
                     </div>
-                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Rings</h3>
+                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">{{$service->title}}</h3>
                     <div class="flex justify-center space-x-4 mt-4">
                         <a href="#"
                            class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
@@ -117,127 +100,15 @@
                         </a>
                     </div>
                 </div>
-                <!-- Necklaces Card -->
-                <div>
-                    <div
-                        class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                        <img src="{{asset('asset/img/neckless.jpeg')}}" alt="Necklaces" class="w-full h-80 object-cover rounded-t-lg">
-                    </div>
-                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Necklaces</h3>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#"
-                           class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                            View Products
-                        </a>
-                    </div>
-                </div>
-                <!-- Earrings Card -->
-                <div>
-                    <div
-                        class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                        <img src="{{asset('asset/img/earing.jpeg')}}" alt="Earrings" class="w-full h-80 object-cover rounded-t-lg">
-                    </div>
-                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Earrings</h3>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#"
-                           class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                            View Products
-                        </a>
-                    </div>
-                </div>
+                @endforeach
+
+
                 <!-- Bracelets Card -->
-                <div>
-                    <div
-                        class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                        <img src="{{asset('asset/img/bracelet.jpeg')}}" alt="Bracelets" class="w-full h-80 object-cover rounded-t-lg">
-                    </div>
-                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Bracelets</h3>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#"
-                           class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                            View Products
-                        </a>
-                    </div>
-                </div>
+
                 <!-- Pendant Set Card -->
-                <div>
-                    <div
-                        class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                        <img src="{{asset('asset/img/pendant.jpeg')}}" alt="Pendant Set"
-                             class="w-full h-80 object-cover rounded-t-lg">
-                    </div>
-                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Pendant Set</h3>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#"
-                           class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                            View Products
-                        </a>
-                    </div>
-                </div>
+
                 <!-- Bangles Card -->
-                <div>
-                    <div
-                        class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                        <img src="{{asset('asset/img/bangles.jpeg')}}" alt="Bangles" class="w-full h-80 object-cover rounded-t-lg">
-                    </div>
-                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Bangles</h3>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#"
-                           class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                           aria-label="Contact via Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="#"
-                           class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                            View Products
-                        </a>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -250,44 +121,31 @@
 
         <div class="bg-gray-100 animate-fadeInFromTop">
             <div class="container mx-auto py-16">
-                <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Why Buy From Us?</h1>
-                <p class="text-center mb-12 mx-auto max-w-2xl text-gray-600">With an exclusive collection of finely
-                    crafted
-                    jewellery that makes you go head over heels in one glance, our offerings include rings, earrings,
-                    pendants, mangalsutras, bangles, bracelets, nose pins, necklaces, etc.</p>
+                @foreach($homeSection as $section)
 
+
+                <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">{{$section->title}}</h1>
+                   <p class="text-center mb-12 mx-auto max-w-2xl text-gray-600">
+                        {!! $section->msg !!}
+
+                    </p>
+                @endforeach
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    @foreach($plans as $plan)
+
+
                     <div
                         class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <img src="{{asset('asset/img/ethical.jpg')}}" alt="Exclusive Collections"
+                        <img src="{{asset('storage/'.$plan->image)}}" alt="Exclusive Collections"
                              class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">Exclusive Collections</h2>
-                        <p class="text-gray-500">Discover unique and elegant designs curated just for you.</p>
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">{{$plan->title}}</h2>
+                        <p class="text-gray-500">{{$plan->msg}}.</p>
                     </div>
-                    <div
-                        class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <img src="{{asset('asset/img/Exclusive-Range.jpg')}}" alt="Ethical And Transparent"
-                             class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">Ethical And Transparent</h2>
-                        <p class="text-gray-500">We ensure ethical sourcing and complete transparency in our processes.
-                        </p>
-                    </div>
-                    <div
-                        class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <img src="{{asset('asset/img/Jewellery-desire.jpg')}}" alt="Lifelong Relationship"
-                             class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">Lifelong Relationship</h2>
-                        <p class="text-gray-500">Our commitment is to build lifelong relationships with our customers.
-                        </p>
-                    </div>
-                    <div
-                        class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <img src="{{asset('asset/img/Lifelong-Relationship.jpg')}}" alt="Jewellery You Desire"
-                             class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">Jewellery You Desire</h2>
-                        <p class="text-gray-500">Find the perfect piece that resonates with your style and personality.
-                        </p>
-                    </div>
+
+                    @endforeach
+
+
+
                 </div>
             </div>
         </div>
@@ -300,22 +158,24 @@
         <!--ENJOY THE MOMENT START-->
 
         <div class="bg-red-100 animate-fadeInFromTop">
+            @foreach($about->skip(1)->take(1) as $aboutData)
+
+
             <div class="container mx-auto py-16 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 p-6 text-center md:text-left">
-                    <h1 class="text-4xl md:text-7xl font-bold text-gray-800 mb-6">ENJOY THE MOMENT</h1>
-                    <p class="text-gray-700 mb-6 text-2xl">Why not make every moment special? Our life is meaningless
-                        without those that we share. Let them know how much they mean to <strong>YOU</strong>.</p>
-                    <p class="text-gray-700 mb-6 text-2xl">Exclusive & Personalised just for you to feel your inner
-                        <strong>JOY</strong>.
-                    </p>
+                    <h1 class="text-4xl md:text-7xl font-bold text-gray-800 mb-6">{{$aboutData->title}}</h1>
+                    <p class="text-gray-700 mb-6 text-2xl">
+                     {!! $aboutData->description !!}
+                    </p>>
                     <button
                         class="mt-4 bg-yellow-500 text-white py-2 px-6 rounded-full hover:bg-yellow-600 hover:shadow-lg transition duration-300">Explore
                         Our Collection</button>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="{{asset('asset/img/enjoy-the-movment.jpg')}}" alt="Woman with Jewellery" class="w-full rounded-lg">
+                    <img src="{{asset('storage/'.$aboutData->image)}}" alt="Woman with Jewellery" class="w-full rounded-lg">
                 </div>
             </div>
+            @endforeach
         </div>
 
         <!--ENJOY THE MOMENT END-->
@@ -348,22 +208,19 @@
 
 
         <div class="container mx-auto p-4">
+            @foreach($about->skip(2)->take(1) as $aboutDatA)
             <div class="flex flex-col md:flex-row items-center">
                 <div class="mb-4 md:mb-0 md:w-1/2 md:order-1">
-                    <img src="{{asset('asset/img/logo-igi.png')}}" alt="Your Logo" class="h-30 md:h-40 lg:h-40 xl:h-50 rounded-lg ">
+                    <img src="{{asset('storage/'.$aboutDatA->image)}}" alt="Your Logo" class="h-30 md:h-40 lg:h-40 xl:h-50 rounded-lg ">
                 </div>
                 <div class="md:w-1/2 md:order-2 fade-in-right overflow-auto">
-                    <h1 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Your Organization Name</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900">{{$aboutDatA->title}}</h1>
                     <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
-                        Diamond is the only gem made of a single element: It is <span
-                            class="font-bold text-gray-800">typically about 99.95 percent carbon</span>.
-                        The other 0.05 percent can include one or more trace elements, which are atoms that aren’t part
-                        of
-                        the diamond’s essential chemistry.
-                        Some trace elements can influence its color or crystal shape.
+                     {!! $aboutDatA->description !!}
                     </p>
                 </div>
             </div>
+            @endforeach
         </div>
 
 
@@ -374,18 +231,14 @@
 
         <div class="bg-red-100 py-6 animate-fadeInFromTop">
             <div class="container mx-auto">
+                @foreach($about->skip(3)->take(1) as $aboutDatA)
                 <div class="flex flex-col md:flex-row">
                     <div class="md:w-1/2 mb-6 md:mb-0 mt-20">
                         <h1 class="mb-4 text-5xl">
-                            <span>Handmade Jewellery</span><br>
-                            Made With Love
-                        </h1>
+                            <span>{{$aboutDatA->title}}</span><br>
+
                         <p class="text-lg leading-relaxed mb-4 text-black">
-                            Necklaces may have been one of the earliest types of adornment worn by humans. They often
-                            serve
-                            ceremonial, religious, magical, or funerary purposes and are also used as symbols of wealth
-                            and
-                            status, given that they are commonly made of precious metals and stones.
+                          {!! $aboutDatA->description !!}
                         </p>
                         <a class="btn btn-sm py-2 px-4 rounded-full bg-yellow-500 text-white hover:bg-yellow-600 transition duration-300"
                            href="#">
@@ -393,10 +246,11 @@
                         </a>
                     </div>
                     <div class="md:w-1/2 fade-in-right">
-                        <img src="{{asset('asset/img/indian-traditional-jewellery.jpg')}}" alt="Handmade Jewellery"
+                        <img src="{{asset('storage/'.$aboutDatA->image)}}" alt="Handmade Jewellery"
                              class="w-full rounded-lg">
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
 

@@ -24,10 +24,10 @@
                 @endif
             </div>
 
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="text" class="form-control" name="price" value="{{$plan->price}}" id="price" required>
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="price">Price</label>--}}
+{{--                <input type="text" class="form-control" name="price" value="{{$plan->price}}" id="price" required>--}}
+{{--            </div>--}}
 
             <div class="form-group">
                 <label for="title">Title</label>
@@ -39,15 +39,15 @@
                 <input type="text" class="form-control" value="{{$plan->msg}}" name="fe_1" id="fe_1">
             </div>
 
-            <div class="form-group">
-                <label for="fe_2">Feature 2</label>
-                <input type="text" class="form-control" value="{{$plan->fe_2}}" name="fe_2" id="fe_2">
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="fe_2">Feature 2</label>--}}
+{{--                <input type="text" class="form-control" value="{{$plan->fe_2}}" name="fe_2" id="fe_2">--}}
+{{--            </div>--}}
 
-            <div class="form-group">
-                <label for="fe_3">Feature 3</label>
-                <input type="text" class="form-control" value="{{$plan->fe_3}}" name="fe_3" id="fe_3">
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="fe_3">Feature 3</label>--}}
+{{--                <input type="text" class="form-control" value="{{$plan->fe_3}}" name="fe_3" id="fe_3">--}}
+{{--            </div>--}}
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
