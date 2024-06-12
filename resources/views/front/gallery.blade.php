@@ -28,46 +28,40 @@
     <div class="container mx-auto mb-10 px-4">
         <h2 class="text-4xl font-bold text-left mt-5 mb-8 text-gray-800">We are offering a 12 months scheme</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach($counters->take(1) as $counter)
+
+
             <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg aos-init aos-animate h-80 flex flex-col justify-between"
                  data-aos="fade-up" data-aos-duration="2000">
-                <span class="text-9xl font-bold mb-4 text-gray-700">01</span>
-                <p class="text-lg leading-relaxed">The investor has to pay ₹3000/- per month.</p>
+                <span class="text-9xl font-bold mb-4 text-gray-700">{{$counter->number}}</span>
+                <p class="text-lg leading-relaxed">{!! $counter->title !!}</p>
             </div>
+            @endforeach
+                @foreach($counters->skip(1)->take(1) as $counter)
             <div class="md:col-span-2 bg-gray-900 text-white p-6 rounded-lg shadow-lg aos-init aos-animate h-80 flex flex-col justify-between"
                  data-aos="fade-up" data-aos-duration="2000">
-                <span class="text-9xl font-bold mb-4 text-gray-700">02</span>
-                <p class="text-lg leading-relaxed">Cost of Diamond Jewellery: ₹3,000/- x 11 Months = ₹33,000/-
-                    (Diamond Jewellery Worth ₹36,000/- After 12 Months).</p>
+                <span class="text-9xl font-bold mb-4 text-gray-700">{{$counter->number}}</span>
+                <p class="text-lg leading-relaxed">
+                    {!! $counter->title !!}
+                </p>
             </div>
+                @endforeach
+                @foreach($counters->skip(2)->take(4) as $counter)
             <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg aos-init aos-animate h-80 flex flex-col justify-between"
                  data-aos="fade-up" data-aos-duration="2000">
-                <span class="text-9xl font-bold mb-4 text-gray-700">03</span>
-                <p class="text-lg leading-relaxed">Number of installments payable by the investor would be 11.</p>
+                <span class="text-9xl font-bold mb-4 text-gray-700">{{$counter->number}}</span>
+                <p class="text-lg leading-relaxed"> {!! $counter->title !!}</p>
             </div>
-            <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg aos-init aos-animate h-80 flex flex-col justify-between"
-                 data-aos="fade-up" data-aos-duration="2000">
-                <span class="text-9xl font-bold mb-4 text-gray-700">04</span>
-                <p class="text-lg leading-relaxed">The last installment (12th month) will be paid by the jeweller
-                    itself.</p>
-            </div>
-            <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg aos-init aos-animate h-80 flex flex-col justify-between"
-                 data-aos="fade-up" data-aos-duration="2000">
-                <span class="text-9xl font-bold mb-4 text-gray-700">05</span>
-                <p class="text-lg leading-relaxed">Three lucky winners will get their EMIs FREE for the 3rd, 6th,
-                    and 9th month respectively. (Lottery system).</p>
-            </div>
-            <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg aos-init aos-animate h-80 flex flex-col justify-between"
-                 data-aos="fade-up" data-aos-duration="2000">
-                <span class="text-9xl font-bold mb-4 text-gray-700">06</span>
-                <p class="text-lg leading-relaxed">Payments to be collected latest by the 10th of every month.</p>
-            </div>
+                @endforeach
+                @foreach($counters->skip(6)->take(1) as $counter)
             <div class="md:col-span-2 bg-gray-900 text-white p-6 rounded-lg shadow-lg aos-init aos-animate h-80 flex flex-col justify-between"
                  data-aos="fade-up" data-aos-duration="2000">
-                <span class="text-9xl font-bold mb-4 text-gray-700">07</span>
-                <p class="text-lg leading-relaxed">The lucky winners of the lottery will not pay for the remaining
-                    months and at the end of 12 months, can take jewellery worth the amount collected for 12 months
-                    totally.</p>
+                <span class="text-9xl font-bold mb-4 text-gray-700">{{$counter->number}}</span>
+                <p class="text-lg leading-relaxed">
+                    {!! $counter->title !!}
+                </p>
             </div>
+                @endforeach
         </div>
     </div>
     <!-- Scheme Details End -->

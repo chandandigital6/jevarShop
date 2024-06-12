@@ -57,7 +57,7 @@
                                 @forelse ($counterData as $counter)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $counter->title }}</td>
+                                        <td>{!! $counter->title  !!} }</td>
                                         <td>{{$counter->number}}</td>
 {{--                                        <td>{!! $counter->description !!}</td>--}}
 {{--                                        <td><img src="{{ asset('storage/'.$counter->image) }}" alt="{{ $counter->title }}" style="max-width: 100px;"></td>--}}

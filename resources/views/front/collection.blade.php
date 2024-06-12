@@ -3,7 +3,6 @@
 @section('title', 'collection')
 @section('content')
 
-
     <!--Browse Our Popular Collections Start-->
 
     <div class="w-full mx-auto py-12 bg-red-100">
@@ -11,150 +10,41 @@
         <div class="md:w-90 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 w-5/6">
 
             <!-- Rings Card -->
-            <div>
-                <div
-                    class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="{{asset('asset/img/ring.jpeg')}}" alt="Rings" class="w-full h-80 object-cover rounded-t-lg">
+            @foreach($services as $service)
+
+
+                <div>
+                    <div
+                        class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <img src="{{asset('storage/'.$service->image)}}" alt="Rings" class="w-full h-80 object-cover rounded-t-lg">
+                    </div>
+                    <h3 class="text-lg font-semibold mt-4 mb-2 text-center">{{$service->title}}</h3>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#"
+                           class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
+                           aria-label="Contact via WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#"
+                           class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
+                           aria-label="Contact via Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="#"
+                           class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
+                            View Products
+                        </a>
+                    </div>
                 </div>
-                <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Rings</h3>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a href="#"
-                       class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                        View Products
-                    </a>
-                </div>
-            </div>
-            <!-- Necklaces Card -->
-            <div>
-                <div
-                    class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="{{asset('asset/img/neckless.jpeg')}}" alt="Necklaces" class="w-full h-80 object-cover rounded-t-lg">
-                </div>
-                <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Necklaces</h3>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a href="#"
-                       class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                        View Products
-                    </a>
-                </div>
-            </div>
-            <!-- Earrings Card -->
-            <div>
-                <div
-                    class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="{{asset('asset/img/earing.jpeg')}}" alt="Earrings" class="w-full h-80 object-cover rounded-t-lg">
-                </div>
-                <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Earrings</h3>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a href="#"
-                       class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                        View Products
-                    </a>
-                </div>
-            </div>
+            @endforeach
+
+
             <!-- Bracelets Card -->
-            <div>
-                <div
-                    class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="{{asset('asset/img/bracelet.jpeg')}}" alt="Bracelets" class="w-full h-80 object-cover rounded-t-lg">
-                </div>
-                <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Bracelets</h3>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a href="#"
-                       class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                        View Products
-                    </a>
-                </div>
-            </div>
+
             <!-- Pendant Set Card -->
-            <div>
-                <div
-                    class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="{{asset('asset/img/pendant.jpeg')}}" alt="Pendant Set"
-                         class="w-full h-80 object-cover rounded-t-lg">
-                </div>
-                <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Pendant Set</h3>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a href="#"
-                       class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                        View Products
-                    </a>
-                </div>
-            </div>
+
             <!-- Bangles Card -->
-            <div>
-                <div
-                    class="bg-white shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="{{asset('asset/img/bangles.jpeg')}}" alt="Bangles" class="w-full h-80 object-cover rounded-t-lg">
-                </div>
-                <h3 class="text-lg font-semibold mt-4 mb-2 text-center">Bangles</h3>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a href="#"
-                       class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
-                       aria-label="Contact via Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="#"
-                       class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center">
-                        View Products
-                    </a>
-                </div>
-            </div>
+
         </div>
     </div>
 

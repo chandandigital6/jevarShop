@@ -23,19 +23,19 @@
 {{--                                <label for="image">Image:</label>--}}
 {{--                                <input type="file" class="form-control" id="image" name="image">--}}
 {{--                            </div>--}}
-                            <div class="form-group">
-                                <label for="title">Title:</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="title">Title:</label>--}}
+{{--                                <input type="text" class="form-control" id="title" name="title" required>--}}
+{{--                            </div>--}}
                             <div class="form-group">
                                 <label for="Number">Number:</label>
                                 <input type="number" class="form-control" id="number" name="number" required>
                             </div>
-{{--                            <div class="form-group">--}}
+                            <div class="form-group">
 
-{{--                                <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="description"></textarea>--}}
+                                <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="title"></textarea>
 
-{{--                            </div>--}}
+                            </div>
                             {{--                            <div class="form-group">--}}
 
                             {{--                                <label for="category">Category</label>--}}

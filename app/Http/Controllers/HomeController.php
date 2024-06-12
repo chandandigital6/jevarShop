@@ -27,10 +27,10 @@ class HomeController extends Controller
         return view('front.index',compact('banner','counters','about','services','plans','testimonials','teams','homeSection'));
       }
       public function about(){
-          $teams=Team::all();
+          $homeSection=HomeSection::all();
           $about=About::all();
-          $counters=Counter::all();
-          return view('front.about',compact('about','teams' ,'counters'));
+          $plans=Plan::all();
+          return view('front.about',compact('about','homeSection' ,'plans'));
       }
 //      public function services(){
 //          $services=Service::all();
@@ -70,11 +70,13 @@ class HomeController extends Controller
     }
 
     public function gallery(){
-        return view('front.gallery');
+        $counters=Counter::all();
+        return view('front.gallery',compact('counters'));
     }
 
 
     public function collection(){
-        return view('front.collection');
+        $services=Service::all();
+        return view('front.collection',compact('services'));
     }
 }

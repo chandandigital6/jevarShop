@@ -23,7 +23,7 @@ class CounterRequest extends FormRequest
     {
         return [
             'number' => 'nullable|string|max:255',
-            'title' => 'nullable|string|max:255',
+            'title' => 'nullable|string',
         ];
     }
 }

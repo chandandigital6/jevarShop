@@ -9,11 +9,11 @@
         <div class="text-gray-300">
             <h2 class="text-lg font-bold mb-4">MENU</h2>
             <ul class="space-y-2">
-                <li><a href="#" class="hover-golden">Home</a></li>
-                <li><a href="#" class="hover-golden">About</a></li>
-                <li><a href="#" class="hover-golden">Carat Gallery Club</a></li>
-                <li><a href="#" class="hover-golden">Collection</a></li>
-                <li><a href="#" class="hover-golden">Contact</a></li>
+                <li><a href="{{route('home')}}" class="hover-golden">Home</a></li>
+                <li><a href="{{route('about')}}" class="hover-golden">About</a></li>
+                <li><a href="{{route('gallery')}}" class="hover-golden">Carat Gallery Club</a></li>
+                <li><a href="{{route('collection')}}" class="hover-golden">Collection</a></li>
+                <li><a href="{{route('contact')}}" class="hover-golden">Contact</a></li>
             </ul>
         </div>
         <div class="text-gray-300">

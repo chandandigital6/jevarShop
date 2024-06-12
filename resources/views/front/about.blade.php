@@ -7,36 +7,24 @@
     <!--About Start-->
 
     <section class="bg-yellow-200 text-gray-900">
-        <div class="container mx-auto px-6 py-12 md:flex md:items-center">
-            <div class="md:w-1/2 md:pr-12 animate-fadeIn">
-                <h1 class="text-5xl font-bold leading-tight mb-4">
-                    SERVICE BEYOND <br> COMPARE SINCE <br> <span class="text-6xl text-gray-700">1940</span>
-                </h1>
-                <p class="text-lg leading-relaxed mb-6">
-                    We are the 5th generation having paternal business since 1940, has made it their mission to
-                    strive
-                    every
-                    day to earn the confidence and trust of our clients by meeting and exceeding their expectations
-                    of
-                    quality, service, and unsurpassed value. We ensure our actions are consistent with our Corporate
-                    Values,
-                    enabling us to maintain the relationships and reputation, which our family-owned firm has
-                    developed
-                    throughout our history.
-                </p>
-                <p class="text-lg leading-relaxed">
-                    The foundation of a family business, and the basis on which our company has grown; an emphasis
-                    on
-                    personalization and strong ties to our clients, industry, and communities,Carat Gallery Diamonds
-                    an
-                    enterprise of Rishabh Chand Sudhir Kumar Jain Sarraf provides our clients with more than they
-                    imagined for less than they anticipate.
-                </p>
+        @foreach($about->take(1) as $abouts)
+
+
+            <div class="container mx-auto px-6 py-12 md:flex md:items-center">
+                <div class="md:w-1/2 md:pr-12 animate-fadeIn">
+                    <h1 class="text-5xl font-bold leading-tight mb-4">
+                        {{$abouts->title}} <br> <span class="text-6xl text-gray-700">{{$abouts->heading}}</span>
+                    </h1>
+                    <p class="text-lg leading-relaxed mb-6">
+                        {!! $abouts->description !!}
+                    </p>
+
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0 animate-fadeIn">
+                    <img src="{{asset('storage/'.$abouts->image)}}" alt="Jewelry Image" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
             </div>
-            <div class="md:w-1/2 mt-8 md:mt-0 animate-fadeIn">
-                <img src="{{asset('asset/img/about-side.jpg')}}" alt="Jewelry Image" class="w-full h-auto rounded-lg shadow-lg">
-            </div>
-        </div>
+        @endforeach
     </section>
 
 
@@ -59,43 +47,26 @@
     <!--About Proprietor Start-->
 
     <div class="bg-red-100 py-12">
+        @foreach($about->skip(4)->take(1) as $aboutDatA)
         <div class="container mx-auto px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-8 text-left text-black">About Proprietor</h2>
+            <h2 class="text-4xl font-bold mb-8 text-left text-black">{{$aboutDatA->title}}</h2>
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/3 text-center">
-                    <img src="{{asset('asset/img/PROPRIETOR.jpeg')}}" alt="Proprietor Image"
+                    <img src="{{asset('storage/'.$aboutDatA->image)}}" alt="Proprietor Image"
                          class="w-full rounded-lg shadow-lg mb-4">
-                    <h3 class="font-bold text-2xl text-black">Sudhir Kumar Jain</h3>
-                    <h5 class="text-xl font-light text-black mt-2">Owner of Rishabh Chand Sudhir Kumar Jain Sarraf
-                    </h5>
+                    <h4 class="font-bold text-2xl text-black">{{$aboutDatA->heading}}</h4>
+
                 </div>
                 <div class="md:w-2/3 text-black mb-40">
+
+
                     <p class="text-lg leading-relaxed">
-                        All that Glitters…<br>
-                        Accept criticism as a challenge and use it to constantly improve myself.
-                        I am a very positive person and the word IMPOSSIBLE is not in my dictionary.
-                        open up Sudhir Kumar Jain, the owner of Rishabh Chand Sudhir Kumar Jain Sarraf,
-                        Alinagar, Gorakhpur. His father was a jeweller merchant himself.
-                        We are in this business for more than 70 years now. My whole family,
-                        including me and my four siblings, are all into this business.
-                        <br><br>
-                        I am the youngest of all siblings and I never wanted to pursue a job,
-                        anywhere. For 12 years, I worked with my father, learning all the skills
-                        of this business, in his shop.
-                    </p>
-                    <p class="text-lg leading-relaxed">
-                        Apart from this, Now we’re bringing a jewellery brand by the name of ‘CaratGallery’. We also
-                        make members in this format, and
-                        it works on the concept of lucky draw where the
-                        winner gets an exclusive jewellery gift from us for an
-                        amount that is much less as compared to the
-                        original cost of the jewellery. I plan to make this a premium brand in years to come. In the
-                        long run we
-                        hope to see a number of units, nationwide, of Carat Gallery diamonds.
+                    {!! $aboutDatA->description !!}
                     </p>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 
 
@@ -109,48 +80,31 @@
 
     <div class="bg-gray-100 animate-fadeInFromTop">
         <div class="container mx-auto py-16">
-            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Why Buy From Us?</h1>
-            <p class="text-center mb-12 mx-auto max-w-2xl text-gray-600">With an exclusive collection of finely
-                crafted
-                jewellery that makes you go head over heels in one glance, our offerings include rings,
-                earrings,
-                pendants, mangalsutras, bangles, bracelets, nose pins, necklaces, etc.</p>
+            @foreach($homeSection as $section)
 
+
+                <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">{{$section->title}}</h1>
+                <p class="text-center mb-12 mx-auto max-w-2xl text-gray-600">
+                    {!! $section->msg !!}
+
+                </p>
+            @endforeach
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div
-                    class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <img src="{{asset('asset/img/ethical.jpg')}}" alt="Exclusive Collections"
-                         class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">Exclusive Collections</h2>
-                    <p class="text-gray-500">Discover unique and elegant designs curated just for you.</p>
-                </div>
-                <div
-                    class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <img src="{{asset('asset/img/Exclusive-Range.jpg')}}" alt="Ethical And Transparent"
-                         class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">Ethical And Transparent</h2>
-                    <p class="text-gray-500">We ensure ethical sourcing and complete transparency in our
-                        processes.
-                    </p>
-                </div>
-                <div
-                    class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <img src="{{asset('asset/img/Jewellery-desire.jpg')}}" alt="Lifelong Relationship"
-                         class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">Lifelong Relationship</h2>
-                    <p class="text-gray-500">Our commitment is to build lifelong relationships with our
-                        customers.
-                    </p>
-                </div>
-                <div
-                    class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <img src="{{asset('asset/img/Lifelong-Relationship.jpg')}}" alt="Jewellery You Desire"
-                         class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">Jewellery You Desire</h2>
-                    <p class="text-gray-500">Find the perfect piece that resonates with your style and
-                        personality.
-                    </p>
-                </div>
+                @foreach($plans as $plan)
+
+
+                    <div
+                        class="card text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <img src="{{asset('storage/'.$plan->image)}}" alt="Exclusive Collections"
+                             class="mx-auto mb-4 w-full h-48 object-cover rounded-lg">
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">{{$plan->title}}</h2>
+                        <p class="text-gray-500">{{$plan->msg}}.</p>
+                    </div>
+
+                @endforeach
+
+
+
             </div>
         </div>
     </div>
