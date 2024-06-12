@@ -29,16 +29,17 @@
                 <h2 class="text-3xl font-bold text-center mb-4">Get In Touch</h2>
                 <p class="text-center mb-8">We collaborate with ambitious brands and people; we’d love to build
                     something great together.</p>
-                <form class="space-y-6">
+                <form class="space-y-6" method="post" action="{{route('appointment.store')}}" >
+                    @csrf
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <input type="text" placeholder="Name *"
+                        <input type="text" placeholder="Name *" name="name"
                                class="w-full p-4 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                        <input type="email" placeholder="Email *"
+                        <input type="email" placeholder="Email *" name="email"
                                class="w-full p-4 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                        <input type="tel" placeholder="Mobile No *"
+                        <input type="tel" placeholder="Mobile No *" name="number"
                                class="w-full p-4 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
                     </div>
-                    <textarea placeholder="Message *" rows="4"
+                    <textarea placeholder="Message *" rows="4" name="msg"
                               class="w-full p-4 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
                     <div class="flex justify-center">
                         <button type="submit"

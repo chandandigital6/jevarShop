@@ -13,7 +13,7 @@
     <ul>
         <li><strong>Name:</strong> {{ $appointment->name }}</li>
         <li><strong>Email:</strong> {{ $appointment->email }}</li>
-        <li><strong>Service:</strong> {{ $appointment->service }}</li>
+{{--        <li><strong>Service:</strong> {{ $appointment->service }}</li>--}}
 {{--        <li><strong>Email:</strong> {{ $appointment->number }}</li>--}}
         <li><strong>Phone Number:</strong> {{ $appointment->number }}</li>
         <li><strong>Phone Number:</strong> {!! $appointment->msg !!}</li>
