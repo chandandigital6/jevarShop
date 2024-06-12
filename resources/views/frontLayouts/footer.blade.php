@@ -31,6 +31,6 @@
     <div
         class="container mx-auto px-4 mt-8 border-t border-gray-700 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
         <p>Copyright © 1940 - 2024 <strong>Carat Gallery</strong>. All Rights Reserved.</p>
-        <p>Design & Developed By <a href="#" class="hover-golden">Real Victory Groups</a></p>
+        <p>Design & Developed By <a href="https://realvictorygroups.com" class="hover-golden">Real Victory Groups</a></p>
     </div>
 </footer>
